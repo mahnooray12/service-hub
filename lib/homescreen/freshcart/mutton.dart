@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class MuttonScreen extends StatefulWidget {
+  const MuttonScreen({super.key});
+
   @override
   _MuttonScreenState createState() => _MuttonScreenState();
 }
@@ -71,7 +73,7 @@ class _MuttonScreenState extends State<MuttonScreen> {
     final index = categories.indexOf(category);
     _itemScrollController.scrollTo(
       index: index,
-      duration: Duration(milliseconds: 600),
+      duration: const Duration(milliseconds: 600),
       curve: Curves.easeInOutCubic,
       alignment: 0.0, // Positions the selected section at the top.
     );
@@ -84,13 +86,13 @@ class _MuttonScreenState extends State<MuttonScreen> {
         return AlertDialog(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          title: Text("Select Keema Type", textAlign: TextAlign.center),
+          title: const Text("Select Keema Type", textAlign: TextAlign.center),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                title: Text("Ran Keema"),
-                leading: Icon(Icons.food_bank, color: Colors.brown),
+                title: const Text("Ran Keema"),
+                leading: const Icon(Icons.food_bank, color: Colors.brown),
                 onTap: () {
                   setState(() {
                     selectedKeema = "Ran Keema";
@@ -99,8 +101,8 @@ class _MuttonScreenState extends State<MuttonScreen> {
                 },
               ),
               ListTile(
-                title: Text("Chest Keema"),
-                leading: Icon(Icons.fastfood, color: Colors.redAccent),
+                title: const Text("Chest Keema"),
+                leading: const Icon(Icons.fastfood, color: Colors.redAccent),
                 onTap: () {
                   setState(() {
                     selectedKeema = "Chest Keema";
@@ -128,8 +130,8 @@ class _MuttonScreenState extends State<MuttonScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(228, 173, 69, 95),
-        title: Text("Mutton", style: TextStyle(color: Colors.white)),
+        backgroundColor: const Color.fromARGB(228, 173, 69, 95),
+        title: const Text("Mutton", style: TextStyle(color: Colors.white)),
         centerTitle: true,
       ),
       body: Column(
@@ -138,14 +140,14 @@ class _MuttonScreenState extends State<MuttonScreen> {
           Container(
             width: double.infinity,
             height: 180,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/goatmain.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           // Horizontal toggle buttons
           SizedBox(
             height: 60,
@@ -162,20 +164,22 @@ class _MuttonScreenState extends State<MuttonScreen> {
                     scrollToCategory(category);
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 8),
                     decoration: BoxDecoration(
                       color: selectedCategory == category
-                          ? Color.fromARGB(255, 243, 189, 207).withOpacity(0.2)
+                          ? const Color.fromARGB(255, 243, 189, 207)
+                              .withOpacity(0.2)
                           : Colors.grey[200],
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.food_bank,
+                        const Icon(Icons.food_bank,
                             size: 20,
                             color: Color.fromARGB(255, 187, 137, 145)),
-                        SizedBox(width: 5),
+                        const SizedBox(width: 5),
                         Text(category),
                       ],
                     ),
@@ -200,7 +204,7 @@ class _MuttonScreenState extends State<MuttonScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         category,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -212,14 +216,16 @@ class _MuttonScreenState extends State<MuttonScreen> {
                       bool isKeema = item["title"] == "Keema";
                       return Container(
                         color: isKeema
-                            ? Color.fromARGB(207, 158, 64, 88)
+                            ? const Color.fromARGB(207, 158, 64, 88)
                             : Colors.transparent,
-                        margin:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-                        padding: isKeema ? EdgeInsets.all(12) : EdgeInsets.zero,
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 10),
+                        padding: isKeema
+                            ? const EdgeInsets.all(12)
+                            : EdgeInsets.zero,
                         child: Card(
                           elevation: isKeema ? 6 : 2,
-                          margin: EdgeInsets.all(10),
+                          margin: const EdgeInsets.all(10),
                           child: ListTile(
                             leading: Image.asset(
                               "assets/${item["image"]}.jpg",
@@ -242,12 +248,12 @@ class _MuttonScreenState extends State<MuttonScreen> {
                                 ? ElevatedButton(
                                     onPressed: showKeemaPopup,
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor:
-                                          Color.fromARGB(226, 175, 53, 83),
-                                      padding: EdgeInsets.symmetric(
+                                      backgroundColor: const Color.fromARGB(
+                                          226, 175, 53, 83),
+                                      padding: const EdgeInsets.symmetric(
                                           horizontal: 24, vertical: 14),
                                     ),
-                                    child: Text(
+                                    child: const Text(
                                       "Select",
                                       style: TextStyle(
                                         fontSize: 16,
@@ -258,7 +264,7 @@ class _MuttonScreenState extends State<MuttonScreen> {
                                   )
                                 : ElevatedButton(
                                     onPressed: () {},
-                                    child: Text("Add"),
+                                    child: const Text("Add"),
                                   ),
                           ),
                         ),

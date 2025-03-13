@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class HairServicesScreen extends StatefulWidget {
+  const HairServicesScreen({super.key});
+
   @override
   _HairServicesScreenState createState() => _HairServicesScreenState();
 }
@@ -82,7 +84,7 @@ class _HairServicesScreenState extends State<HairServicesScreen> {
     final index = hairServices.indexOf(service);
     _itemScrollController.scrollTo(
       index: index,
-      duration: Duration(milliseconds: 600),
+      duration: const Duration(milliseconds: 600),
       curve: Curves.easeInOutCubic,
       alignment: 0.0, // This positions the selected section at the top.
     );
@@ -96,8 +98,9 @@ class _HairServicesScreenState extends State<HairServicesScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 245, 191, 200),
-        title: Text("Hair Services", style: TextStyle(color: Colors.white)),
+        backgroundColor: const Color.fromARGB(255, 245, 191, 200),
+        title:
+            const Text("Hair Services", style: TextStyle(color: Colors.white)),
         centerTitle: true,
       ),
       body: Column(
@@ -106,14 +109,14 @@ class _HairServicesScreenState extends State<HairServicesScreen> {
           Container(
             width: double.infinity,
             height: 180,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/hairmain.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           // Horizontal toggle buttons
           SizedBox(
             height: 60,
@@ -128,20 +131,22 @@ class _HairServicesScreenState extends State<HairServicesScreen> {
                     scrollToService(service);
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 8),
                     decoration: BoxDecoration(
                       color: selectedHairService == service
-                          ? Color.fromARGB(255, 243, 189, 207).withOpacity(0.2)
+                          ? const Color.fromARGB(255, 243, 189, 207)
+                              .withOpacity(0.2)
                           : Colors.grey[200],
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.cut,
+                        const Icon(Icons.cut,
                             size: 20,
                             color: Color.fromARGB(255, 187, 137, 145)),
-                        SizedBox(width: 5),
+                        const SizedBox(width: 5),
                         Text(service),
                       ],
                     ),
@@ -162,10 +167,10 @@ class _HairServicesScreenState extends State<HairServicesScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                         service,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -173,7 +178,7 @@ class _HairServicesScreenState extends State<HairServicesScreen> {
                       final rating = generateRating();
                       final price = generatePrice();
                       return Card(
-                        margin: EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(10),
                         child: ListTile(
                           leading: Image.asset("assets/${item["image"]}.jpg",
                               width: 55, height: 55),
@@ -182,14 +187,14 @@ class _HairServicesScreenState extends State<HairServicesScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(item["desc"]!),
-                              SizedBox(height: 5),
+                              const SizedBox(height: 5),
                               Row(
                                 children: [
                                   Text("PKR $price",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.green)),
-                                  SizedBox(width: 10),
+                                  const SizedBox(width: 10),
                                   Row(
                                     children: List.generate(
                                       5,
@@ -202,9 +207,9 @@ class _HairServicesScreenState extends State<HairServicesScreen> {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(width: 5),
+                                  const SizedBox(width: 5),
                                   Text(rating.toStringAsFixed(1),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold)),
                                 ],
                               ),
@@ -212,7 +217,7 @@ class _HairServicesScreenState extends State<HairServicesScreen> {
                           ),
                           trailing: ElevatedButton(
                             onPressed: () {},
-                            child: Text("Book Now"),
+                            child: const Text("Book Now"),
                           ),
                         ),
                       );

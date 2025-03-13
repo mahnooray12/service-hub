@@ -11,12 +11,14 @@ void main() {
 }
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Home Services"),
+        title: const Text("Home Services"),
         centerTitle: true,
         backgroundColor: Colors.blue,
       ),
@@ -28,7 +30,7 @@ class HomeScreen extends StatelessWidget {
               MaterialPageRoute(builder: (context) => HomeAssistScreen()),
             );
           },
-          child: Text("Open Services"),
+          child: const Text("Open Services"),
         ),
       ),
     );
@@ -58,31 +60,33 @@ class HomeAssistScreen extends StatelessWidget {
     },
   ];
 
+  HomeAssistScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF8F1E5),
+      backgroundColor: const Color(0xFFF8F1E5),
       appBar: AppBar(
-        title: Text("Home Assist"),
+        title: const Text("Home Assist"),
         centerTitle: true,
         backgroundColor: Colors.brown,
         foregroundColor: Colors.white,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 10),
-            Container(
+            const SizedBox(height: 10),
+            SizedBox(
               width: double.infinity, // Ensures full width to align left
-              child: Text(
+              child: const Text(
                 "WHAT ARE\nYOU LOOKING \nFOR?",
                 style: TextStyle(
                   fontSize: 26, // Adjust as needed
@@ -91,8 +95,8 @@ class HomeAssistScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 30),
-            Center(
+            const SizedBox(height: 30),
+            const Center(
               child: Text(
                 "Categories",
                 style: TextStyle(
@@ -102,7 +106,7 @@ class HomeAssistScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 35),
+            const SizedBox(height: 35),
             Expanded(
               child: Row(
                 children: [
@@ -111,19 +115,19 @@ class HomeAssistScreen extends StatelessWidget {
                       children: [
                         _buildServiceBox(context, homeSubCategories[0], true,
                             false), // Electrician (small)
-                        SizedBox(height: 25),
+                        const SizedBox(height: 25),
                         _buildServiceBox(context, homeSubCategories[2], false,
                             true), // Plumber (medium)
                       ],
                     ),
                   ),
-                  SizedBox(width: 15),
+                  const SizedBox(width: 15),
                   Expanded(
                     child: Column(
                       children: [
                         _buildServiceBox(context, homeSubCategories[3], false,
                             true), // Handyman (medium)
-                        SizedBox(height: 25),
+                        const SizedBox(height: 25),
                         _buildServiceBox(context, homeSubCategories[1], true,
                             false), // AC Technician (small)
                       ],
@@ -163,7 +167,7 @@ class HomeAssistScreen extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 0.45,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(36), // Rounded corners
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.black26,
                   blurRadius: 8,
@@ -180,12 +184,12 @@ class HomeAssistScreen extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
 
           // Service Name Below the Image (without background)
           Text(
             category["name"],
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.bold,
               color: Color.fromARGB(255, 88, 49, 35),

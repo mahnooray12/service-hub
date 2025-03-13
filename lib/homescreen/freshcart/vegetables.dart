@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class SeasonalVegetablesScreen extends StatefulWidget {
+  const SeasonalVegetablesScreen({super.key});
+
   @override
   _SeasonalVegetablesScreenState createState() =>
       _SeasonalVegetablesScreenState();
@@ -191,7 +193,7 @@ class _SeasonalVegetablesScreenState extends State<SeasonalVegetablesScreen> {
     final index = categories.indexOf(category);
     _itemScrollController.scrollTo(
       index: index,
-      duration: Duration(milliseconds: 600),
+      duration: const Duration(milliseconds: 600),
       curve: Curves.easeInOutCubic,
     );
   }
@@ -204,8 +206,8 @@ class _SeasonalVegetablesScreenState extends State<SeasonalVegetablesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(246, 104, 170, 107),
-        title: Text("Vegetables",
+        backgroundColor: const Color.fromARGB(246, 104, 170, 107),
+        title: const Text("Vegetables",
             style: TextStyle(color: Color.fromARGB(255, 48, 48, 48))),
         centerTitle: true,
       ),
@@ -214,14 +216,14 @@ class _SeasonalVegetablesScreenState extends State<SeasonalVegetablesScreen> {
           Container(
             width: double.infinity,
             height: 180,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/vegetablemain.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           SizedBox(
             height: 60,
             child: ListView.builder(
@@ -237,18 +239,20 @@ class _SeasonalVegetablesScreenState extends State<SeasonalVegetablesScreen> {
                     scrollToCategory(category);
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 8),
                     decoration: BoxDecoration(
                       color: selectedCategory == category
-                          ? Color.fromARGB(255, 67, 129, 70).withOpacity(0.2)
+                          ? const Color.fromARGB(255, 67, 129, 70)
+                              .withOpacity(0.2)
                           : Colors.grey[200],
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.eco, size: 20, color: Colors.green),
-                        SizedBox(width: 5),
+                        const Icon(Icons.eco, size: 20, color: Colors.green),
+                        const SizedBox(width: 5),
                         Text(category),
                       ],
                     ),
@@ -270,7 +274,7 @@ class _SeasonalVegetablesScreenState extends State<SeasonalVegetablesScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         category,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -279,9 +283,9 @@ class _SeasonalVegetablesScreenState extends State<SeasonalVegetablesScreen> {
                     ...vegetableData[category]!.map((item) {
                       if (item["special"] == "true") {
                         return Container(
-                          margin:
-                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                          padding: EdgeInsets.symmetric(
+                          margin: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 5),
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 20, vertical: 15),
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
@@ -293,7 +297,7 @@ class _SeasonalVegetablesScreenState extends State<SeasonalVegetablesScreen> {
                               end: Alignment.centerRight,
                             ),
                             borderRadius: BorderRadius.circular(30),
-                            boxShadow: [
+                            boxShadow: const [
                               BoxShadow(
                                 color: Colors.black26,
                                 blurRadius: 5,
@@ -311,7 +315,7 @@ class _SeasonalVegetablesScreenState extends State<SeasonalVegetablesScreen> {
                                 children: [
                                   Text(
                                     item["title"]!,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
@@ -319,10 +323,10 @@ class _SeasonalVegetablesScreenState extends State<SeasonalVegetablesScreen> {
                                     textAlign: TextAlign
                                         .center, // Ensure text is centered
                                   ),
-                                  SizedBox(height: 5),
+                                  const SizedBox(height: 5),
                                   Text(
                                     item["desc"]!,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.white70,
                                         fontSize:
                                             10, // Increase the font size (adjust as needed)
@@ -339,14 +343,14 @@ class _SeasonalVegetablesScreenState extends State<SeasonalVegetablesScreen> {
 
                       double price = generateRandomPrice();
                       return Card(
-                        margin: EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(10),
                         child: ListTile(
                           leading: Image.asset(
                             "assets/${item["image"]}.jpg",
                             width: 55,
                             height: 55,
                             errorBuilder: (context, error, stackTrace) =>
-                                Icon(Icons.image_not_supported),
+                                const Icon(Icons.image_not_supported),
                           ),
                           title: Text(item["title"]!),
                           subtitle: Column(
@@ -356,13 +360,14 @@ class _SeasonalVegetablesScreenState extends State<SeasonalVegetablesScreen> {
                                   "desc"]!), // Display the vegetable description
                               Text(
                                 "Rs. ${price.toStringAsFixed(2)} per kg",
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),
                           trailing: ElevatedButton(
                             onPressed: () {},
-                            child: Text("Add"),
+                            child: const Text("Add"),
                           ),
                         ),
                       );

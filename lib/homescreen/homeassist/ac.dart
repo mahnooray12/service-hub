@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class ACTechnicianServiceApp extends StatelessWidget {
+  const ACTechnicianServiceApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,6 +15,8 @@ class ACTechnicianServiceApp extends StatelessWidget {
 }
 
 class ACTechnicianServiceScreen extends StatefulWidget {
+  const ACTechnicianServiceScreen({super.key});
+
   @override
   _ACTechnicianServiceScreenState createState() =>
       _ACTechnicianServiceScreenState();
@@ -137,10 +141,10 @@ class _ACTechnicianServiceScreenState extends State<ACTechnicianServiceScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("AC Technician Services"),
+        title: const Text("AC Technician Services"),
         foregroundColor: Colors.white,
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 108, 143, 172),
+        backgroundColor: const Color.fromARGB(255, 108, 143, 172),
       ),
       body: Column(
         children: [
@@ -148,7 +152,7 @@ class _ACTechnicianServiceScreenState extends State<ACTechnicianServiceScreen> {
           Container(
             width: double.infinity,
             height: 180,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image:
                     AssetImage("assets/acmain.jpg"), // replace with your asset
@@ -156,7 +160,7 @@ class _ACTechnicianServiceScreenState extends State<ACTechnicianServiceScreen> {
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           // Horizontal toggle buttons for AC technician services
           SizedBox(
             height: 60,
@@ -171,14 +175,15 @@ class _ACTechnicianServiceScreenState extends State<ACTechnicianServiceScreen> {
                     final index = services.indexOf(service);
                     _itemScrollController.scrollTo(
                       index: index,
-                      duration: Duration(milliseconds: 600),
+                      duration: const Duration(milliseconds: 600),
                       curve: Curves.easeInOutCubic,
                       alignment: 0.0, // Aligns the section at the top
                     );
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 8),
                     decoration: BoxDecoration(
                       color: selectedService == service
                           ? Colors.blue.withOpacity(0.2)
@@ -187,10 +192,10 @@ class _ACTechnicianServiceScreenState extends State<ACTechnicianServiceScreen> {
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.build,
+                        const Icon(Icons.build,
                             size: 20,
                             color: Color.fromARGB(255, 124, 150, 172)),
-                        SizedBox(width: 5),
+                        const SizedBox(width: 5),
                         Text(service),
                       ],
                     ),
@@ -212,10 +217,10 @@ class _ACTechnicianServiceScreenState extends State<ACTechnicianServiceScreen> {
                   children: [
                     // Section header for each AC technician service category
                     Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                         service,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -224,7 +229,7 @@ class _ACTechnicianServiceScreenState extends State<ACTechnicianServiceScreen> {
                       final rating = generateRating();
                       final price = generatePrice();
                       return Card(
-                        margin: EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(10),
                         child: ListTile(
                           leading: Image.asset("assets/${item["image"]}.jpg",
                               width: 55, height: 55),
@@ -233,14 +238,14 @@ class _ACTechnicianServiceScreenState extends State<ACTechnicianServiceScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(item["desc"]!),
-                              SizedBox(height: 5),
+                              const SizedBox(height: 5),
                               Row(
                                 children: [
                                   Text("PKR $price",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.green)),
-                                  SizedBox(width: 10),
+                                  const SizedBox(width: 10),
                                   Row(
                                     children: List.generate(
                                       5,
@@ -253,9 +258,9 @@ class _ACTechnicianServiceScreenState extends State<ACTechnicianServiceScreen> {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(width: 5),
+                                  const SizedBox(width: 5),
                                   Text(rating.toStringAsFixed(1),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold)),
                                 ],
                               ),
@@ -263,7 +268,7 @@ class _ACTechnicianServiceScreenState extends State<ACTechnicianServiceScreen> {
                           ),
                           trailing: ElevatedButton(
                             onPressed: () {},
-                            child: Text("Add"),
+                            child: const Text("Add"),
                           ),
                         ),
                       );

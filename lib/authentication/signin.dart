@@ -6,6 +6,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,6 +18,8 @@ class MyApp extends StatelessWidget {
 }
 
 class SignInSignUpScreen extends StatefulWidget {
+  const SignInSignUpScreen({super.key});
+
   @override
   _SignInSignUpScreenState createState() => _SignInSignUpScreenState();
 }
@@ -31,7 +35,7 @@ class _SignInSignUpScreenState extends State<SignInSignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF8F1E5), // Ensure pure white background
+      backgroundColor: const Color(0xFFF8F1E5), // Ensure pure white background
       body: Column(
         children: [
           // Image takes half the screen
@@ -39,7 +43,7 @@ class _SignInSignUpScreenState extends State<SignInSignUpScreen> {
             flex: 1,
             child: Container(
               width: double.infinity,
-              color: Color(0xFFF8F1E5),
+              color: const Color(0xFFF8F1E5),
               child: Image.asset(
                 'assets/biker.png',
                 fit: BoxFit.contain,
@@ -52,11 +56,14 @@ class _SignInSignUpScreenState extends State<SignInSignUpScreen> {
             child: SingleChildScrollView(
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.95,
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(30),
-                  boxShadow: [BoxShadow(blurRadius: 8, color: Colors.black26)],
+                  boxShadow: const [
+                    BoxShadow(blurRadius: 8, color: Colors.black26)
+                  ],
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -84,7 +91,7 @@ class _SignInSignUpScreenState extends State<SignInSignUpScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     if (!isSignIn) ...[
                       _buildTextField("First Name", Icons.person),
                       _buildTextField("Last Name", Icons.person),
@@ -98,13 +105,14 @@ class _SignInSignUpScreenState extends State<SignInSignUpScreen> {
                       _buildTextField("Confirm Password", Icons.lock,
                           obscureText: true,
                           controller: _confirmPasswordController),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       // Gender Selection
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Row(
                           children: [
-                            Text("Gender: ", style: TextStyle(fontSize: 14)),
+                            const Text("Gender: ",
+                                style: TextStyle(fontSize: 14)),
                             Row(
                               children: [
                                 Radio(
@@ -116,7 +124,7 @@ class _SignInSignUpScreenState extends State<SignInSignUpScreen> {
                                     });
                                   },
                                 ),
-                                Text("Male"),
+                                const Text("Male"),
                               ],
                             ),
                             Row(
@@ -130,14 +138,14 @@ class _SignInSignUpScreenState extends State<SignInSignUpScreen> {
                                     });
                                   },
                                 ),
-                                Text("Female"),
+                                const Text("Female"),
                               ],
                             ),
                           ],
                         ),
                       ),
                     ],
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     ElevatedButton(
                       onPressed: () {
                         // Navigate to HomeScreen when Sign In or Create Account is clicked
@@ -153,8 +161,8 @@ class _SignInSignUpScreenState extends State<SignInSignUpScreen> {
                       child: Text(isSignIn ? "Sign In" : "Create Account"),
                     ),
                     if (isSignIn) ...[
-                      SizedBox(height: 8),
-                      Align(
+                      const SizedBox(height: 8),
+                      const Align(
                         alignment: Alignment.center,
                         child: Text("Forgot Password?",
                             style: TextStyle(color: Colors.brown)),
@@ -181,12 +189,12 @@ class _SignInSignUpScreenState extends State<SignInSignUpScreen> {
           hintText: hint,
           prefixIcon: Icon(icon, color: Colors.brown), // Brown icon
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
                 color: Colors.brown, width: 2), // Brown border when active
             borderRadius: BorderRadius.circular(15),
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
                 color: Colors.brown, width: 1.5), // Brown border when inactive
             borderRadius: BorderRadius.circular(15),
           ),

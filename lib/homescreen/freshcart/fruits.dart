@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class SeasonalFruitsScreen extends StatefulWidget {
+  const SeasonalFruitsScreen({super.key});
+
   @override
   _SeasonalFruitsScreenState createState() => _SeasonalFruitsScreenState();
 }
@@ -52,7 +54,7 @@ class _SeasonalFruitsScreenState extends State<SeasonalFruitsScreen> {
     final index = seasons.indexOf(season);
     _itemScrollController.scrollTo(
       index: index,
-      duration: Duration(milliseconds: 600),
+      duration: const Duration(milliseconds: 600),
       curve: Curves.easeInOutCubic,
       alignment: 0.0, // Brings the selected section to the top.
     );
@@ -70,8 +72,9 @@ class _SeasonalFruitsScreenState extends State<SeasonalFruitsScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 214, 152, 181),
-        title: Text("Seasonal Fruits", style: TextStyle(color: Colors.white)),
+        backgroundColor: const Color.fromARGB(255, 214, 152, 181),
+        title: const Text("Seasonal Fruits",
+            style: TextStyle(color: Colors.white)),
         centerTitle: true,
       ),
       body: Column(
@@ -80,14 +83,14 @@ class _SeasonalFruitsScreenState extends State<SeasonalFruitsScreen> {
           Container(
             width: double.infinity,
             height: 180,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/fruits.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           // Horizontal toggle buttons
           SizedBox(
             height: 60,
@@ -104,20 +107,22 @@ class _SeasonalFruitsScreenState extends State<SeasonalFruitsScreen> {
                     scrollToSeason(season);
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 8),
                     decoration: BoxDecoration(
                       color: selectedSeason == season
-                          ? Color.fromARGB(255, 243, 189, 207).withOpacity(0.2)
+                          ? const Color.fromARGB(255, 243, 189, 207)
+                              .withOpacity(0.2)
                           : Colors.grey[200],
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.eco,
+                        const Icon(Icons.eco,
                             size: 20,
                             color: Color.fromARGB(255, 187, 137, 145)),
-                        SizedBox(width: 5),
+                        const SizedBox(width: 5),
                         Text(season),
                       ],
                     ),
@@ -142,7 +147,7 @@ class _SeasonalFruitsScreenState extends State<SeasonalFruitsScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         season,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -150,7 +155,7 @@ class _SeasonalFruitsScreenState extends State<SeasonalFruitsScreen> {
                     ...seasonalFruits[season]!.map((item) {
                       double price = generateRandomPrice();
                       return Card(
-                        margin: EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(10),
                         child: ListTile(
                           leading: Image.asset("assets/${item["image"]}.jpg",
                               width: 55, height: 55),
@@ -159,7 +164,7 @@ class _SeasonalFruitsScreenState extends State<SeasonalFruitsScreen> {
                               "${item["desc"]!} - Rs. ${price.toStringAsFixed(2)}"),
                           trailing: ElevatedButton(
                             onPressed: () {},
-                            child: Text("Add"),
+                            child: const Text("Add"),
                           ),
                         ),
                       );

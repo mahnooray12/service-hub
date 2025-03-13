@@ -163,6 +163,8 @@ class LifestyleAssistanceDialog extends StatelessWidget {
     {"name": "Driver", "image": "assets/driver12.png"},
   ];
 
+  LifestyleAssistanceDialog({super.key});
+
   void navigateToScreen(BuildContext context, String category) {
     if (category == "Maid") {
       Navigator.push(
@@ -180,17 +182,17 @@ class LifestyleAssistanceDialog extends StatelessWidget {
         Navigator.pop(context);
       },
       child: Dialog(
-        insetPadding: EdgeInsets.all(10),
+        insetPadding: const EdgeInsets.all(10),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         backgroundColor: Colors.transparent,
         child: Center(
           child: SingleChildScrollView(
             child: Container(
               width: MediaQuery.of(context).size.width * 0.8,
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     color: Colors.black26,
                     blurRadius: 10,
@@ -202,7 +204,7 @@ class LifestyleAssistanceDialog extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     "Popular Services",
                     style: TextStyle(
                       fontSize: 22,
@@ -210,11 +212,12 @@ class LifestyleAssistanceDialog extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   GridView.builder(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 20,
                       mainAxisSpacing: 10,
@@ -239,7 +242,7 @@ class LifestyleAssistanceDialog extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(15),
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                       color: Colors.black26,
                                       blurRadius: 10,
@@ -248,15 +251,15 @@ class LifestyleAssistanceDialog extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                padding: EdgeInsets.all(10),
+                                padding: const EdgeInsets.all(10),
                                 alignment: Alignment.centerLeft,
                                 child: Padding(
-                                  padding: EdgeInsets.only(left: 10),
+                                  padding: const EdgeInsets.only(left: 10),
                                   child: RotatedBox(
                                     quarterTurns: 3,
                                     child: Text(
                                       subcategory["name"],
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 15,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.black,

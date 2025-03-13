@@ -23,6 +23,8 @@ class ChickenMenuScreen extends StatelessWidget {
 
   final Random _random = Random();
 
+  ChickenMenuScreen({super.key});
+
   double generateRandomPrice() {
     return (800 + _random.nextDouble() * 500).roundToDouble();
   }
@@ -32,8 +34,9 @@ class ChickenMenuScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 214, 152, 181),
-        title: Text("Chicken Menu", style: TextStyle(color: Colors.white)),
+        backgroundColor: const Color.fromARGB(255, 214, 152, 181),
+        title:
+            const Text("Chicken Menu", style: TextStyle(color: Colors.white)),
         centerTitle: true,
       ),
       body: Column(
@@ -41,25 +44,25 @@ class ChickenMenuScreen extends StatelessWidget {
           Container(
             width: double.infinity,
             height: 200,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/chickenmain.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Container(
-            color: Color.fromARGB(207, 158, 64, 88),
-            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-            padding: EdgeInsets.all(12),
+            color: const Color.fromARGB(207, 158, 64, 88),
+            margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+            padding: const EdgeInsets.all(12),
             child: Card(
               elevation: 6,
-              margin: EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
               child: ListTile(
                 leading: Image.asset("assets/wholechicken.jpg",
                     width: 75, height: 75),
-                title: Text(
+                title: const Text(
                   "Whole Chicken",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
@@ -68,10 +71,11 @@ class ChickenMenuScreen extends StatelessWidget {
                 trailing: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(226, 175, 53, 83),
-                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                    backgroundColor: const Color.fromARGB(226, 175, 53, 83),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 14),
                   ),
-                  child: Text("Add",
+                  child: const Text("Add",
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -86,7 +90,7 @@ class ChickenMenuScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 final item = chickenItems[index + 1];
                 return Card(
-                  margin: EdgeInsets.all(10),
+                  margin: const EdgeInsets.all(10),
                   child: ListTile(
                     leading: Image.asset("assets/${item["image"]}.jpg",
                         width: 55, height: 55),
@@ -95,7 +99,7 @@ class ChickenMenuScreen extends StatelessWidget {
                         "${item["desc"]!} - Rs. ${generateRandomPrice().toStringAsFixed(2)} per kg"),
                     trailing: ElevatedButton(
                       onPressed: () {},
-                      child: Text("Add"),
+                      child: const Text("Add"),
                     ),
                   ),
                 );

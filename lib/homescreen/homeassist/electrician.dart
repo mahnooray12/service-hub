@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class ElectricianServiceApp extends StatelessWidget {
+  const ElectricianServiceApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,6 +15,8 @@ class ElectricianServiceApp extends StatelessWidget {
 }
 
 class ElectricianServiceScreen extends StatefulWidget {
+  const ElectricianServiceScreen({super.key});
+
   @override
   _ElectricianServiceScreenState createState() =>
       _ElectricianServiceScreenState();
@@ -174,10 +178,10 @@ class _ElectricianServiceScreenState extends State<ElectricianServiceScreen> {
     final index = services.indexOf(service);
     bool isLastItem = index == services.length - 1;
 
-    Future.delayed(Duration(milliseconds: 200), () {
+    Future.delayed(const Duration(milliseconds: 200), () {
       _itemScrollController.scrollTo(
         index: index,
-        duration: Duration(milliseconds: 600),
+        duration: const Duration(milliseconds: 600),
         curve: Curves.easeInOutCubic,
         alignment: isLastItem ? 1.0 : 0.0, // Ensure last item is fully at top
       );
@@ -202,7 +206,7 @@ class _ElectricianServiceScreenState extends State<ElectricianServiceScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Electrician Services"),
+        title: const Text("Electrician Services"),
         centerTitle: true,
         backgroundColor: Colors.brown,
         foregroundColor: Colors.white,
@@ -212,7 +216,7 @@ class _ElectricianServiceScreenState extends State<ElectricianServiceScreen> {
           Container(
             width: double.infinity,
             height: 200,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/elect.jpg"),
                 fit: BoxFit.cover,
@@ -220,13 +224,13 @@ class _ElectricianServiceScreenState extends State<ElectricianServiceScreen> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             child: TextField(
               onChanged: (query) {
                 setState(() {
                   searchQuery = query.toLowerCase();
                 });
-                Future.delayed(Duration(milliseconds: 100), () {
+                Future.delayed(const Duration(milliseconds: 100), () {
                   if (query.isNotEmpty) {
                     for (int i = 0; i < services.length; i++) {
                       if (subcategories[services[i]]!.any((item) =>
@@ -238,7 +242,7 @@ class _ElectricianServiceScreenState extends State<ElectricianServiceScreen> {
                               .contains(query.toLowerCase()))) {
                         _itemScrollController.scrollTo(
                           index: i,
-                          duration: Duration(milliseconds: 500),
+                          duration: const Duration(milliseconds: 500),
                           curve: Curves.easeInOutCubic,
                           alignment: 0.0,
                         );
@@ -250,9 +254,10 @@ class _ElectricianServiceScreenState extends State<ElectricianServiceScreen> {
               },
               decoration: InputDecoration(
                 hintText: "Search...",
-                hintStyle: TextStyle(color: Color.fromARGB(255, 88, 49, 35)),
-                prefixIcon:
-                    Icon(Icons.search, color: Color.fromARGB(255, 88, 49, 35)),
+                hintStyle:
+                    const TextStyle(color: Color.fromARGB(255, 88, 49, 35)),
+                prefixIcon: const Icon(Icons.search,
+                    color: Color.fromARGB(255, 88, 49, 35)),
                 filled: true,
                 fillColor: const Color.fromARGB(255, 248, 246, 246),
                 border: OutlineInputBorder(
@@ -262,7 +267,7 @@ class _ElectricianServiceScreenState extends State<ElectricianServiceScreen> {
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           SizedBox(
             height: 60,
             child: ListView(
@@ -276,14 +281,15 @@ class _ElectricianServiceScreenState extends State<ElectricianServiceScreen> {
                     final index = services.indexOf(service);
                     _itemScrollController.scrollTo(
                       index: index,
-                      duration: Duration(milliseconds: 600),
+                      duration: const Duration(milliseconds: 600),
                       curve: Curves.easeInOutCubic,
                       alignment: 0.0, // Aligns the section at the top
                     );
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 8),
                     decoration: BoxDecoration(
                       color: selectedService == service
                           ? Colors.brown.withOpacity(0.2)
@@ -298,7 +304,7 @@ class _ElectricianServiceScreenState extends State<ElectricianServiceScreen> {
                           size: 20,
                           color: Colors.brown,
                         ),
-                        SizedBox(width: 5),
+                        const SizedBox(width: 5),
                         Text(service),
                       ],
                     ),
@@ -307,7 +313,7 @@ class _ElectricianServiceScreenState extends State<ElectricianServiceScreen> {
               }).toList(),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Expanded(
             child: ScrollablePositionedList.builder(
               itemCount:
@@ -333,16 +339,17 @@ class _ElectricianServiceScreenState extends State<ElectricianServiceScreen> {
                             item["desc"]!.toLowerCase().contains(searchQuery))
                         .toList();
 
-                if (filteredSubcategories.isEmpty) return SizedBox.shrink();
+                if (filteredSubcategories.isEmpty)
+                  return const SizedBox.shrink();
 
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                         service,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -351,8 +358,8 @@ class _ElectricianServiceScreenState extends State<ElectricianServiceScreen> {
                       int price = generatePrice();
                       String title = item["title"]!;
                       return Card(
-                        margin: EdgeInsets.all(10),
-                        color: Color(0xFFF8F1E5),
+                        margin: const EdgeInsets.all(10),
+                        color: const Color(0xFFF8F1E5),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -364,14 +371,14 @@ class _ElectricianServiceScreenState extends State<ElectricianServiceScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(item["desc"]!),
-                              SizedBox(height: 5),
+                              const SizedBox(height: 5),
                               Row(
                                 children: [
                                   Text("PKR $price",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.green)),
-                                  SizedBox(width: 10),
+                                  const SizedBox(width: 10),
                                   Row(
                                     children: List.generate(
                                       5,
@@ -384,9 +391,9 @@ class _ElectricianServiceScreenState extends State<ElectricianServiceScreen> {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(width: 5),
+                                  const SizedBox(width: 5),
                                   Text(rating.toStringAsFixed(1),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold)),
                                 ],
                               ),
@@ -396,12 +403,14 @@ class _ElectricianServiceScreenState extends State<ElectricianServiceScreen> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               IconButton(
-                                icon: Icon(Icons.remove, color: Colors.brown),
+                                icon: const Icon(Icons.remove,
+                                    color: Colors.brown),
                                 onPressed: () => decrementCount(title),
                               ),
                               Text('${itemCounts[title] ?? 0}'),
                               IconButton(
-                                icon: Icon(Icons.add, color: Colors.brown),
+                                icon:
+                                    const Icon(Icons.add, color: Colors.brown),
                                 onPressed: () => incrementCount(title),
                               ),
                             ],

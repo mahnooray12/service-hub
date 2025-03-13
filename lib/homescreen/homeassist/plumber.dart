@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class PlumberServiceApp extends StatelessWidget {
+  const PlumberServiceApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,6 +15,8 @@ class PlumberServiceApp extends StatelessWidget {
 }
 
 class PlumberServiceScreen extends StatefulWidget {
+  const PlumberServiceScreen({super.key});
+
   @override
   _PlumberServiceScreenState createState() => _PlumberServiceScreenState();
 }
@@ -137,10 +141,10 @@ class _PlumberServiceScreenState extends State<PlumberServiceScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Plumbing Services"),
+        title: const Text("Plumbing Services"),
         foregroundColor: Colors.white,
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 108, 143, 172),
+        backgroundColor: const Color.fromARGB(255, 108, 143, 172),
       ),
       body: Column(
         children: [
@@ -148,7 +152,7 @@ class _PlumberServiceScreenState extends State<PlumberServiceScreen> {
           Container(
             width: double.infinity,
             height: 180,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
                     "assets/plumbermain.jpg"), // Replace with your plumber asset
@@ -156,7 +160,7 @@ class _PlumberServiceScreenState extends State<PlumberServiceScreen> {
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           // Horizontal toggle buttons
           SizedBox(
             height: 60,
@@ -171,14 +175,15 @@ class _PlumberServiceScreenState extends State<PlumberServiceScreen> {
                     final index = services.indexOf(service);
                     _itemScrollController.scrollTo(
                       index: index,
-                      duration: Duration(milliseconds: 600),
+                      duration: const Duration(milliseconds: 600),
                       curve: Curves.easeInOutCubic,
                       alignment: 0.0, // Aligns the section at the top
                     );
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 8),
                     decoration: BoxDecoration(
                       color: selectedService == service
                           ? Colors.blue.withOpacity(0.2)
@@ -187,8 +192,9 @@ class _PlumberServiceScreenState extends State<PlumberServiceScreen> {
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.plumbing, size: 20, color: Colors.blue),
-                        SizedBox(width: 5),
+                        const Icon(Icons.plumbing,
+                            size: 20, color: Colors.blue),
+                        const SizedBox(width: 5),
                         Text(service),
                       ],
                     ),
@@ -210,10 +216,10 @@ class _PlumberServiceScreenState extends State<PlumberServiceScreen> {
                   children: [
                     // Section header
                     Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                         service,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -222,7 +228,7 @@ class _PlumberServiceScreenState extends State<PlumberServiceScreen> {
                       final rating = generateRating();
                       final price = generatePrice();
                       return Card(
-                        margin: EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(10),
                         child: ListTile(
                           leading: Image.asset("assets/${item["image"]}.jpg",
                               width: 55, height: 55),
@@ -231,14 +237,14 @@ class _PlumberServiceScreenState extends State<PlumberServiceScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(item["desc"]!),
-                              SizedBox(height: 5),
+                              const SizedBox(height: 5),
                               Row(
                                 children: [
                                   Text("PKR $price",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.green)),
-                                  SizedBox(width: 10),
+                                  const SizedBox(width: 10),
                                   Row(
                                     children: List.generate(
                                       5,
@@ -251,9 +257,9 @@ class _PlumberServiceScreenState extends State<PlumberServiceScreen> {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(width: 5),
+                                  const SizedBox(width: 5),
                                   Text(rating.toStringAsFixed(1),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold)),
                                 ],
                               ),
@@ -261,7 +267,7 @@ class _PlumberServiceScreenState extends State<PlumberServiceScreen> {
                           ),
                           trailing: ElevatedButton(
                             onPressed: () {},
-                            child: Text("Add"),
+                            child: const Text("Add"),
                           ),
                         ),
                       );

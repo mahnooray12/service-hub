@@ -8,6 +8,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,6 +20,8 @@ class MyApp extends StatelessWidget {
 }
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -36,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen>
     // Start fade-in animation
     _fadeController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 800),
     );
 
     _fadeAnimation = CurvedAnimation(
@@ -47,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen>
     _fadeController.forward();
 
     // Show words one by one
-    Timer.periodic(Duration(milliseconds: 500), (timer) {
+    Timer.periodic(const Duration(milliseconds: 500), (timer) {
       if (wordIndex < words.length - 1) {
         setState(() {
           wordIndex++;
@@ -58,7 +62,7 @@ class _SplashScreenState extends State<SplashScreen>
     });
 
     // Navigate to WelcomeScreen after 3 seconds
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -103,7 +107,7 @@ class _SplashScreenState extends State<SplashScreen>
               child: Text(
                 words.sublist(0, wordIndex + 1).join(" "),
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.italic,

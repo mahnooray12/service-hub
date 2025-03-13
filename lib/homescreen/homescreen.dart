@@ -7,6 +7,8 @@ import 'package:servicehub/homescreen/lifestyle/lifestyle.dart';
 import 'package:servicehub/homescreen/personalcare/personalcare.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreen();
 }
@@ -68,19 +70,19 @@ class _HomeScreen extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF8F1E5),
+      backgroundColor: const Color(0xFFF8F1E5),
       drawer: AppDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.brown,
         //Color(0xFFF8F1E5),
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.white, // Change this to any color
         ),
         elevation: 0,
         actions: [
           IconButton(
-            icon: Icon(Icons.shopping_cart,
-                color: const Color.fromARGB(255, 250, 249, 249)),
+            icon: const Icon(Icons.shopping_cart,
+                color: Color.fromARGB(255, 250, 249, 249)),
             onPressed: () {},
           ),
         ],
@@ -96,7 +98,7 @@ class _HomeScreen extends State<HomeScreen> {
                 controller: _searchController,
                 decoration: InputDecoration(
                   hintText: "Search...",
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: const Icon(Icons.search),
                   filled: true,
                   fillColor: const Color.fromARGB(255, 248, 246, 246),
                   border: OutlineInputBorder(
@@ -105,13 +107,13 @@ class _HomeScreen extends State<HomeScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
-              Text("Explore",
+              const SizedBox(height: 20),
+              const Text("Explore",
                   style: TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.bold,
                       color: Colors.brown)),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               SizedBox(
                 height: 360, // Increased height for bigger boxes
                 child: ListView.builder(
@@ -141,7 +143,7 @@ class _HomeScreen extends State<HomeScreen> {
                               color: Colors.black.withOpacity(0.1),
                               spreadRadius: 2,
                               blurRadius: 8,
-                              offset: Offset(0, 5),
+                              offset: const Offset(0, 5),
                             ),
                           ],
                         ),
@@ -149,7 +151,7 @@ class _HomeScreen extends State<HomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ClipRRect(
-                              borderRadius: BorderRadius.vertical(
+                              borderRadius: const BorderRadius.vertical(
                                   top: Radius.circular(20)),
                               child: Image.asset(
                                 filteredCategories[index]['image'],
@@ -167,20 +169,20 @@ class _HomeScreen extends State<HomeScreen> {
                                     Text(
                                       filteredCategories[index]['name'],
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 20,
                                           color: Colors.brown),
                                     ),
-                                    SizedBox(height: 5),
+                                    const SizedBox(height: 5),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
                                         Icon(filteredCategories[index]['icon'],
                                             size: 20, color: Colors.brown),
-                                        SizedBox(width: 5),
-                                        Text("Tap for further details",
+                                        const SizedBox(width: 5),
+                                        const Text("Tap for further details",
                                             style: TextStyle(
                                                 fontSize: 15,
                                                 color: Colors.grey)),
@@ -197,13 +199,13 @@ class _HomeScreen extends State<HomeScreen> {
                   },
                 ),
               ),
-              SizedBox(height: 30),
-              Text("Additional Service",
+              const SizedBox(height: 30),
+              const Text("Additional Service",
                   style: TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.bold,
                       color: Colors.brown)),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
 
               // 🔥 Cab Service with Image & Icon beside "Safe & Fast Rides"
               GestureDetector(
@@ -211,7 +213,7 @@ class _HomeScreen extends State<HomeScreen> {
                 child: Container(
                   width: double.infinity,
                   height: 160, // Increased height
-                  margin: EdgeInsets.only(right: 15),
+                  margin: const EdgeInsets.only(right: 15),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
@@ -220,14 +222,14 @@ class _HomeScreen extends State<HomeScreen> {
                         color: Colors.grey.withOpacity(0.2),
                         spreadRadius: 2,
                         blurRadius: 5,
-                        offset: Offset(0, 3),
+                        offset: const Offset(0, 3),
                       ),
                     ],
                   ),
                   child: Row(
                     children: [
                       ClipRRect(
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(20),
                             bottomLeft: Radius.circular(20)),
                         child: Image.asset(
@@ -237,7 +239,7 @@ class _HomeScreen extends State<HomeScreen> {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      Expanded(
+                      const Expanded(
                         child: Padding(
                           padding: EdgeInsets.all(12),
                           child: Column(

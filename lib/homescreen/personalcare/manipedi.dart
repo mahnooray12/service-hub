@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class ManiPediServicesScreen extends StatefulWidget {
+  const ManiPediServicesScreen({super.key});
+
   @override
   _ManiPediServicesScreenState createState() => _ManiPediServicesScreenState();
 }
@@ -72,7 +74,7 @@ class _ManiPediServicesScreenState extends State<ManiPediServicesScreen> {
     final index = categories.indexOf(category);
     _itemScrollController.scrollTo(
       index: index,
-      duration: Duration(milliseconds: 600),
+      duration: const Duration(milliseconds: 600),
       curve: Curves.easeInOutCubic,
       alignment: 0.0, // Positions the section at the top.
     );
@@ -86,9 +88,9 @@ class _ManiPediServicesScreenState extends State<ManiPediServicesScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 252, 182, 203),
-        title:
-            Text("Mani/Pedi Services", style: TextStyle(color: Colors.white)),
+        backgroundColor: const Color.fromARGB(255, 252, 182, 203),
+        title: const Text("Mani/Pedi Services",
+            style: TextStyle(color: Colors.white)),
         centerTitle: true,
       ),
       body: Column(
@@ -97,14 +99,14 @@ class _ManiPediServicesScreenState extends State<ManiPediServicesScreen> {
           Container(
             width: double.infinity,
             height: 180,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/manipedimain.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           // Horizontal toggle buttons for categories.
           SizedBox(
             height: 60,
@@ -119,20 +121,22 @@ class _ManiPediServicesScreenState extends State<ManiPediServicesScreen> {
                     scrollToCategory(category);
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 8),
                     decoration: BoxDecoration(
                       color: selectedCategory == category
-                          ? Color.fromARGB(255, 243, 189, 207).withOpacity(0.2)
+                          ? const Color.fromARGB(255, 243, 189, 207)
+                              .withOpacity(0.2)
                           : Colors.grey[200],
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.spa,
+                        const Icon(Icons.spa,
                             size: 20,
                             color: Color.fromARGB(255, 187, 137, 145)),
-                        SizedBox(width: 5),
+                        const SizedBox(width: 5),
                         Text(category),
                       ],
                     ),
@@ -156,7 +160,7 @@ class _ManiPediServicesScreenState extends State<ManiPediServicesScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         category,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -164,7 +168,7 @@ class _ManiPediServicesScreenState extends State<ManiPediServicesScreen> {
                       double rating = generateRating();
                       int price = generatePrice();
                       return Card(
-                        margin: EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(10),
                         child: ListTile(
                           leading: Image.asset("assets/${item["image"]}.jpg",
                               width: 55, height: 55),
@@ -173,14 +177,14 @@ class _ManiPediServicesScreenState extends State<ManiPediServicesScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(item["desc"]!),
-                              SizedBox(height: 5),
+                              const SizedBox(height: 5),
                               Row(
                                 children: [
                                   Text("PKR $price",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.green)),
-                                  SizedBox(width: 10),
+                                  const SizedBox(width: 10),
                                   Row(
                                     children: List.generate(
                                       5,
@@ -193,9 +197,9 @@ class _ManiPediServicesScreenState extends State<ManiPediServicesScreen> {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(width: 5),
+                                  const SizedBox(width: 5),
                                   Text(rating.toStringAsFixed(1),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold)),
                                 ],
                               ),
@@ -203,7 +207,7 @@ class _ManiPediServicesScreenState extends State<ManiPediServicesScreen> {
                           ),
                           trailing: ElevatedButton(
                             onPressed: () {},
-                            child: Text("Book Now"),
+                            child: const Text("Book Now"),
                           ),
                         ),
                       );

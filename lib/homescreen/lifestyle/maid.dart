@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MaidServiceApp extends StatelessWidget {
+  const MaidServiceApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,6 +17,8 @@ class MaidServiceApp extends StatelessWidget {
 }
 
 class MaidServiceScreen extends StatefulWidget {
+  const MaidServiceScreen({super.key});
+
   @override
   _MaidServiceScreenState createState() => _MaidServiceScreenState();
 }
@@ -47,7 +51,7 @@ class _MaidServiceScreenState extends State<MaidServiceScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Maid Services"),
+        title: const Text("Maid Services"),
         centerTitle: true,
         backgroundColor: Colors.brown[400],
       ),
@@ -56,17 +60,17 @@ class _MaidServiceScreenState extends State<MaidServiceScreen> {
           Container(
             width: double.infinity,
             height: MediaQuery.of(context).size.height * 0.2,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/maidmain.webp"),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 20),
-            padding: EdgeInsets.all(8),
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               color: Colors.brown[300],
               borderRadius: BorderRadius.circular(30),
@@ -79,17 +83,17 @@ class _MaidServiceScreenState extends State<MaidServiceScreen> {
               ],
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           if (showSubcategories)
             _buildSubcategories(selectedCategory == "Contract-Based"
                 ? contractSubcategories
                 : eventSubcategories),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Expanded(
             child: GridView.builder(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               itemCount: services.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 15,
                 mainAxisSpacing: 15,
@@ -121,14 +125,14 @@ class _MaidServiceScreenState extends State<MaidServiceScreen> {
                             color: Colors.brown[200],
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(3),
+                            padding: const EdgeInsets.all(3),
                             child: Image.asset(
                               services[index]["image"]!,
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Text(
                           services[index]["name"]!,
                           style: TextStyle(
@@ -186,12 +190,12 @@ class _MaidServiceScreenState extends State<MaidServiceScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("Additional Details"),
+          title: const Text("Additional Details"),
           content: _buildServiceQuestions(service),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: Text("OK"),
+              child: const Text("OK"),
             ),
           ],
         );
@@ -204,12 +208,13 @@ class _MaidServiceScreenState extends State<MaidServiceScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("Selection Required"),
-          content: Text("Please select a category before choosing a service."),
+          title: const Text("Selection Required"),
+          content:
+              const Text("Please select a category before choosing a service."),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: Text("OK"),
+              child: const Text("OK"),
             ),
           ],
         );
@@ -227,13 +232,13 @@ class _MaidServiceScreenState extends State<MaidServiceScreen> {
         });
       },
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 25),
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
         decoration: BoxDecoration(
           color: selectedCategory == category
               ? Colors.brown[600]
               : Colors.brown[200],
           borderRadius: BorderRadius.circular(20),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.black26,
               blurRadius: 5,
@@ -244,10 +249,10 @@ class _MaidServiceScreenState extends State<MaidServiceScreen> {
         child: Row(
           children: [
             Icon(icon, color: Colors.white),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Text(
               category,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
@@ -268,6 +273,6 @@ class _MaidServiceScreenState extends State<MaidServiceScreen> {
     } else if (service == "Cooking" || service == "Dishwashing") {
       question = "How many people live in your house?";
     }
-    return Text(question, style: TextStyle(fontSize: 16));
+    return Text(question, style: const TextStyle(fontSize: 16));
   }
 }

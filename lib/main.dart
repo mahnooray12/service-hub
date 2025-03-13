@@ -6,6 +6,8 @@ void main() {
 }
 
 class ServiceHubApp extends StatelessWidget {
+  const ServiceHubApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

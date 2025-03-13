@@ -5,7 +5,7 @@ import 'dart:async';
 class WelcomeScreen extends StatefulWidget {
   final String customerName;
 
-  WelcomeScreen({required this.customerName});
+  const WelcomeScreen({super.key, required this.customerName});
 
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
@@ -38,7 +38,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   void initState() {
     super.initState();
-    _timer = Timer.periodic(Duration(seconds: 2), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 2), (Timer timer) {
       if (_currentPage < images.length - 1) {
         _currentPage++;
       } else {
@@ -46,7 +46,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       }
       _pageController.animateToPage(
         _currentPage,
-        duration: Duration(milliseconds: 700),
+        duration: const Duration(milliseconds: 700),
         curve: Curves.easeInOut,
       );
     });
@@ -62,11 +62,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF8F1E5),
+      backgroundColor: const Color(0xFFF8F1E5),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             "Welcome to Service Hub",
             style: TextStyle(
               fontSize: 35,
@@ -74,7 +74,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               color: Color.fromARGB(248, 143, 83, 83),
             ),
           ),
-          SizedBox(height: 15), // Reduced space
+          const SizedBox(height: 15), // Reduced space
           SizedBox(
             height: 370, // Reduced height so button moves up
             child: PageView.builder(
@@ -92,11 +92,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   children: [
                     Container(
                       height: 55, // Slightly reduced text height
-                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       alignment: Alignment.center,
                       child: Text(
                         slogans[index],
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(248, 143, 83, 83),
@@ -106,14 +106,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     _buildImage(images[index]),
                   ],
                 );
               },
             ),
           ),
-          SizedBox(height: 15), // Reduced space before button
+          const SizedBox(height: 15), // Reduced space before button
           _buildButton("Get Started", () {
             Navigator.push(
               context,
@@ -145,7 +145,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       style: ElevatedButton.styleFrom(
         backgroundColor: color,
         foregroundColor: Colors.white,
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25),
         ),
@@ -153,7 +153,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       ),
       child: Text(
         text,
-        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
       ),
     );
   }

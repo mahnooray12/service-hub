@@ -2,6 +2,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class BeefScreen extends StatefulWidget {
+  const BeefScreen({super.key});
+
   @override
   _BeefScreenState createState() => _BeefScreenState();
 }
@@ -33,13 +35,13 @@ class _BeefScreenState extends State<BeefScreen> {
         return AlertDialog(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          title: Text("Select Keema Type", textAlign: TextAlign.center),
+          title: const Text("Select Keema Type", textAlign: TextAlign.center),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                title: Text("Ran Keema"),
-                leading: Icon(Icons.food_bank, color: Colors.brown),
+                title: const Text("Ran Keema"),
+                leading: const Icon(Icons.food_bank, color: Colors.brown),
                 onTap: () {
                   setState(() {
                     selectedKeema = "Ran Keema";
@@ -48,8 +50,8 @@ class _BeefScreenState extends State<BeefScreen> {
                 },
               ),
               ListTile(
-                title: Text("Chest Keema"),
-                leading: Icon(Icons.fastfood, color: Colors.redAccent),
+                title: const Text("Chest Keema"),
+                leading: const Icon(Icons.fastfood, color: Colors.redAccent),
                 onTap: () {
                   setState(() {
                     selectedKeema = "Chest Keema";
@@ -73,8 +75,8 @@ class _BeefScreenState extends State<BeefScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(150, 145, 64, 138),
-        title: Text("Beef", style: TextStyle(color: Colors.white)),
+        backgroundColor: const Color.fromARGB(150, 145, 64, 138),
+        title: const Text("Beef", style: TextStyle(color: Colors.white)),
         centerTitle: true,
       ),
       body: Column(
@@ -82,14 +84,14 @@ class _BeefScreenState extends State<BeefScreen> {
           Container(
             width: double.infinity,
             height: 180,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/cow.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Expanded(
             child: ListView.builder(
               itemCount: meatOptions.length,
@@ -99,13 +101,14 @@ class _BeefScreenState extends State<BeefScreen> {
                 bool isKeema = item["title"] == "Keema";
                 return Container(
                   color: isKeema
-                      ? Color.fromARGB(150, 145, 64, 138)
+                      ? const Color.fromARGB(150, 145, 64, 138)
                       : Colors.transparent,
-                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-                  padding: isKeema ? EdgeInsets.all(12) : EdgeInsets.zero,
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                  padding: isKeema ? const EdgeInsets.all(12) : EdgeInsets.zero,
                   child: Card(
                     elevation: isKeema ? 6 : 2,
-                    margin: EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10),
                     child: ListTile(
                       leading: Image.asset(
                         "assets/${item["image"]}.jpg",
@@ -128,11 +131,11 @@ class _BeefScreenState extends State<BeefScreen> {
                               onPressed: showKeemaPopup,
                               style: ElevatedButton.styleFrom(
                                 backgroundColor:
-                                    Color.fromARGB(227, 145, 64, 138),
-                                padding: EdgeInsets.symmetric(
+                                    const Color.fromARGB(227, 145, 64, 138),
+                                padding: const EdgeInsets.symmetric(
                                     horizontal: 24, vertical: 14),
                               ),
-                              child: Text(
+                              child: const Text(
                                 "Select",
                                 style: TextStyle(
                                   fontSize: 16,
@@ -143,7 +146,7 @@ class _BeefScreenState extends State<BeefScreen> {
                             )
                           : ElevatedButton(
                               onPressed: () {},
-                              child: Text("Add"),
+                              child: const Text("Add"),
                             ),
                     ),
                   ),

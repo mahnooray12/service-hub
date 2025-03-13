@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class MilkScreen extends StatefulWidget {
+  const MilkScreen({super.key});
+
   @override
   _MilkScreenState createState() => _MilkScreenState();
 }
@@ -33,7 +35,7 @@ class _MilkScreenState extends State<MilkScreen> {
     final index = categories.indexOf(category);
     _itemScrollController.scrollTo(
       index: index,
-      duration: Duration(milliseconds: 600),
+      duration: const Duration(milliseconds: 600),
       curve: Curves.easeInOutCubic,
       alignment: 0.0, // Brings the selected section to the top.
     );
@@ -48,7 +50,7 @@ class _MilkScreenState extends State<MilkScreen> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          title: Center(
+          title: const Center(
             child: Text(
               "Select Quantity",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -61,7 +63,7 @@ class _MilkScreenState extends State<MilkScreen> {
                 "Choose your preferred quantity:",
                 style: TextStyle(fontSize: 16, color: Colors.grey[700]),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               if (category == 'Milk') ...[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -75,7 +77,7 @@ class _MilkScreenState extends State<MilkScreen> {
                         ),
                       ),
                       onPressed: () {},
-                      child: Text("1 Litre"),
+                      child: const Text("1 Litre"),
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -86,11 +88,11 @@ class _MilkScreenState extends State<MilkScreen> {
                         ),
                       ),
                       onPressed: () {},
-                      child: Text("2 Litres"),
+                      child: const Text("2 Litres"),
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 TextField(
                   decoration: InputDecoration(
                     labelText: "Enter your choice (Litres)",
@@ -119,7 +121,7 @@ class _MilkScreenState extends State<MilkScreen> {
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: Text(
+                child: const Text(
                   "Close",
                   style: TextStyle(color: Colors.brown, fontSize: 16),
                 ),
@@ -151,8 +153,8 @@ class _MilkScreenState extends State<MilkScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(216, 121, 86, 33),
-        title: Text("Dairy Delights",
+        backgroundColor: const Color.fromARGB(216, 121, 86, 33),
+        title: const Text("Dairy Delights",
             style: TextStyle(color: Color.fromARGB(255, 51, 14, 0))),
         centerTitle: true,
       ),
@@ -162,14 +164,14 @@ class _MilkScreenState extends State<MilkScreen> {
           Container(
             width: double.infinity,
             height: 180,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/milkmain.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
 
           SizedBox(
             height: 60,
@@ -186,8 +188,9 @@ class _MilkScreenState extends State<MilkScreen> {
                     scrollToCategory(category);
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 8),
                     decoration: BoxDecoration(
                       color: selectedCategory == category
                           ? Colors.orange.withOpacity(0.2)
@@ -196,8 +199,9 @@ class _MilkScreenState extends State<MilkScreen> {
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.local_drink, size: 20, color: Colors.brown),
-                        SizedBox(width: 5),
+                        const Icon(Icons.local_drink,
+                            size: 20, color: Colors.brown),
+                        const SizedBox(width: 5),
                         Text(category),
                       ],
                     ),
@@ -224,17 +228,17 @@ class _MilkScreenState extends State<MilkScreen> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(category,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold)),
                     ),
                     // Category card.
                     Card(
-                      margin: EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
                       child: ListTile(
                         leading: Image.asset("assets/${images[category]}",
                             width: 55, height: 55),
                         title: Text(category,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold)),
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -242,14 +246,14 @@ class _MilkScreenState extends State<MilkScreen> {
                             Text(descriptions[category]!,
                                 style: TextStyle(
                                     fontSize: 14, color: Colors.grey[700])),
-                            SizedBox(height: 5),
+                            const SizedBox(height: 5),
                             Row(
                               children: [
                                 Text("Rs. ${price.toStringAsFixed(2)}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.green)),
-                                SizedBox(width: 10),
+                                const SizedBox(width: 10),
                                 Row(
                                   children: List.generate(
                                     5,
@@ -262,10 +266,10 @@ class _MilkScreenState extends State<MilkScreen> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(width: 5),
+                                const SizedBox(width: 5),
                                 Text(rating.toStringAsFixed(1),
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold)),
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold)),
                               ],
                             ),
                           ],
@@ -278,7 +282,7 @@ class _MilkScreenState extends State<MilkScreen> {
                           onPressed: () {
                             showQuantityPopup(context, category);
                           },
-                          child: Text("Get Fresh"),
+                          child: const Text("Get Fresh"),
                         ),
                       ),
                     ),
