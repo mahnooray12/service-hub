@@ -28,29 +28,23 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cloud_firestore: ^5.6.5
+  cupertino_icons: ^1.0.2
+  firebase_auth: ^5.5.1
+  firebase_core: ^3.12.1
+  firebase_storage: ^12.4.4
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.7.0
   scrollable_positioned_list: ^0.3.5
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-
 dev_dependencies:
+  flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
 
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
-  flutter_lints: ^5.0.0
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -60,9 +54,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-
   assets:
-#homescreen
+    #homescreen
     - assets/1.jpg
     - assets/h1.jpg
     - assets/h2.jpg
@@ -102,15 +95,15 @@ flutter:
     - assets/threading.png
     - assets/vegetables12.png
     - assets/wax.png
-#homeassist
+    #homeassist
     - assets/elec.jpg
     - assets/plum.jpg
     - assets/handy.jpg
     - assets/ac.jpg
 
-  #electrician
+    #electrician
     - assets/elect.jpg
-    - assets/electricianscreen.jpg 
+    - assets/electricianscreen.jpg
     - assets/machine1.jpg
     - assets/machine2.jpg
     - assets/machine3.jpg
@@ -129,7 +122,7 @@ flutter:
     - assets/ups1.jpg
     - assets/ups2.jpg
     - assets/ups3.jpg
- #facial
+    #facial
     - assets/facialmain.jpg
     - assets/facial1.jpg
     - assets/facial2.jpg
@@ -137,7 +130,7 @@ flutter:
     - assets/facial4.jpg
     - assets/facial5.jpg
     - assets/facial6.jpg
-  #manipedi
+    #manipedi
     - assets/manipedimain.jpg
     - assets/mani1.jpg
     - assets/mani2.jpg
@@ -146,7 +139,7 @@ flutter:
     - assets/manipedi1.jpg
     - assets/manipedi2.jpg
     - assets/manipedi3.jpg
-  #wax
+    #wax
     - assets/waxmain.jpg
     - assets/wax1.jpg
     - assets/wax2.jpg
@@ -157,7 +150,7 @@ flutter:
     - assets/wax7.jpg
     - assets/wax8.jpg
     - assets/wax9.jpg
-  #fruits
+    #fruits
     - assets/mangoes.jpg
     - assets/apples.jpg
     - assets/strawberries.jpg
@@ -174,7 +167,7 @@ flutter:
     - assets/grapes.jpg
     - assets/jamun.jpg
     - assets/bananas.jpg
-  #hair
+    #hair
     - assets/hairmain.jpg
     - assets/hair1.jpg
     - assets/hair2.jpg
@@ -187,22 +180,22 @@ flutter:
     - assets/hair9.jpg
     - assets/hair10.jpg
     - assets/hair11.jpg
-  #threading
+    #threading
     - assets/threadmain.jpg
     - assets/thread1.jpg
     - assets/thread2.jpg
     - assets/thread3.jpg
-  #makeup
+    #makeup
     - assets/makeupmain.jpg
     - assets/makeup1.jpg
     - assets/makeup2.jpg
     - assets/makeup3.jpg
     - assets/makeup4.jpg
-  #massage
+    #massage
     - assets/massagemain.jpg
     - assets/massage1.jpg
     - assets/massage2.jpg
-  #nails
+    #nails
     - assets/nailmain.jpg
     - assets/nail1.jpg
     - assets/nail2.jpg
@@ -212,29 +205,29 @@ flutter:
     - assets/nail6.jpg
     - assets/nail7.jpg
     - assets/nail8.jpg
-  #meat#goat
+    #meat#goat
     - assets/keema.jpg
     - assets/liver.jpg
     - assets/ran1.jpg
     - assets/leg1.jpg
     - assets/champ1.jpg
-  #meat#lamb
+    #meat#lamb
     - assets/keema.jpg
     - assets/liver2.jpg
     - assets/ran2.jpg
     - assets/leg2.jpg
     - assets/champ2.jpg
-  #milk
+    #milk
     - assets/milkmain.jpg
     - assets/milk.jpg
     - assets/yogurt.jpg
-  #chicken
+    #chicken
     - assets/chickenmain.jpg
     - assets/wholechicken.jpg
     - assets/chest.jpg
     - assets/legpiece.jpg
     - assets/wings.jpg
-  #Plumber#bath
+    #Plumber#bath
     - assets/plumbermain.jpg
     - assets/bath1.jpg
     - assets/bath2.jpg
@@ -248,74 +241,74 @@ flutter:
     - assets/bath10.jpg
     - assets/bath11.jpg
     - assets/bath12.jpg
-  #Plumber#kitchen
+    #Plumber#kitchen
     - assets/kitchen1.jpg
     - assets/kitchen2.jpg
     - assets/kitchen3.jpg
-  #Plumber#geyser
+    #Plumber#geyser
     - assets/geyser1.jpg
     - assets/geyser2.jpg
-   #Plumber#motor
+    #Plumber#motor
     - assets/motor1.jpg
     - assets/motor2.jpg
-   #ACtechnician
-    - assets/acmain.jpg 
-    - assets/ac1.jpg 
-    - assets/ac2.jpg 
-    - assets/ac3.jpg 
-    - assets/ac4.jpg 
-    - assets/ac5.jpg 
-    - assets/ac6.jpg 
-    - assets/ac7.jpg 
-    - assets/ac8.jpg 
-    - assets/ac9.jpg 
-    - assets/ac10.jpg 
-    - assets/ac11.jpg 
-    - assets/ac12.jpg 
-    - assets/ac13.jpg 
-    - assets/ac14.jpg 
+    #ACtechnician
+    - assets/acmain.jpg
+    - assets/ac1.jpg
+    - assets/ac2.jpg
+    - assets/ac3.jpg
+    - assets/ac4.jpg
+    - assets/ac5.jpg
+    - assets/ac6.jpg
+    - assets/ac7.jpg
+    - assets/ac8.jpg
+    - assets/ac9.jpg
+    - assets/ac10.jpg
+    - assets/ac11.jpg
+    - assets/ac12.jpg
+    - assets/ac13.jpg
+    - assets/ac14.jpg
     - assets/ac15.jpg
     - assets/ac16.jpg
     #vegetables/fourseason
-    - assets/vegetablemain.jpg 
-    - assets/tomatoes.jpg 
-    - assets/cucumber.jpg 
-    - assets/beetroot.jpg 
-    - assets/lemon.jpg 
-    - assets/onions.jpg 
-    - assets/ginger.jpg 
-    - assets/garlic.jpg 
-    - assets/mint.jpg 
-    - assets/corriander.jpg 
-    - assets/lettuce.jpg 
-    - assets/chillies.jpg 
-    - assets/cabbage.jpg 
-    - assets/shimla.jpg 
-    - assets/eggplant.jpg 
-    - assets/orangecarrot.jpg 
-    - assets/shaljam.jpg 
-    - assets/palak.jpg 
+    - assets/vegetablemain.jpg
+    - assets/tomatoes.jpg
+    - assets/cucumber.jpg
+    - assets/beetroot.jpg
+    - assets/lemon.jpg
+    - assets/onions.jpg
+    - assets/ginger.jpg
+    - assets/garlic.jpg
+    - assets/mint.jpg
+    - assets/corriander.jpg
+    - assets/lettuce.jpg
+    - assets/chillies.jpg
+    - assets/cabbage.jpg
+    - assets/shimla.jpg
+    - assets/eggplant.jpg
+    - assets/orangecarrot.jpg
+    - assets/shaljam.jpg
+    - assets/palak.jpg
     - assets/potatoes.jpg
 
-   #vegetables/winter
-    - assets/sarson.jpg 
-    - assets/peas.jpg 
-    - assets/redcarrot.jpg 
-    - assets/raddish.jpg 
-    - assets/fenugreek.jpg 
-  #vegetables/summer
-    - assets/bhindi.jpg 
-    - assets/karella.jpg 
-    - assets/tinda.jpg 
+    #vegetables/winter
+    - assets/sarson.jpg
+    - assets/peas.jpg
+    - assets/redcarrot.jpg
+    - assets/raddish.jpg
+    - assets/fenugreek.jpg
+    #vegetables/summer
+    - assets/bhindi.jpg
+    - assets/karella.jpg
+    - assets/tinda.jpg
     - assets/arvi.jpg
-  #beef
-    - assets/cow.jpg 
-    - assets/ribs.jpg 
+    #beef
+    - assets/cow.jpg
+    - assets/ribs.jpg
     - assets/cow2.jpg
     - assets/ran.jpg
     - assets/keema1.jpg
     - assets/payee.jpg
-  #maid
+    #maid
     - assets/maidmain.webp
     - assets/dishwash.webp
     - assets/cleaning.webp
@@ -323,13 +316,10 @@ flutter:
     - assets/washing.jpg
     - assets/cooking.jpg
     - assets/nanny.jpg
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
