@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:servicehub/drawer/sidedrawer.dart';
 import 'package:servicehub/homescreen/eventdecor/event.dart';
@@ -15,6 +16,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreen extends State<HomeScreen> {
   final TextEditingController _searchController = TextEditingController();
+  final user = FirebaseAuth.instance.currentUser;
+
+  signOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
 
   List<Map<String, dynamic>> categories = [
     {
@@ -85,6 +91,34 @@ class _HomeScreen extends State<HomeScreen> {
                 color: Color.fromARGB(255, 250, 249, 249)),
             onPressed: () {},
           ),
+          IconButton(
+            icon: const Icon(Icons.logout,
+                color: Color.fromARGB(255, 250, 249, 249)),
+            onPressed: () async {
+              bool? confirmLogout = await showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: Text("Logout"),
+                  content: Text("Are you sure you want to logout?"),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context, false), // Cancel
+                      child: Text("Cancel"),
+                    ),
+                    TextButton(
+                      onPressed: () => Navigator.pop(context, true), // Confirm
+                      child: Text("Logout"),
+                    ),
+                  ],
+                ),
+              );
+
+              if (confirmLogout == true) {
+                await signOut();
+              }
+            },
+          ),
+          // Add a logout button
         ],
       ),
       body: Padding(

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:servicehub/welcome.dart'; // Import your WelcomeScreen here
 import 'dart:async';
 import 'dart:ui';
+
+import 'package:servicehub/authentication/wrapper.dart';
 
 void main() {
   runApp(MyApp());
@@ -64,12 +65,11 @@ class _SplashScreenState extends State<SplashScreen>
     // Navigate to WelcomeScreen after 3 seconds
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-            builder: (context) => WelcomeScreen(
-                customerName:
-                    'Fatima and mahnooray12')), // Replace with actual name if needed
-      );
+          context,
+          MaterialPageRoute(
+            builder: (context) =>
+                Wrapper(), // Replace with actual name if needed
+          ));
     });
   }
 

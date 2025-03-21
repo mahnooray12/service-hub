@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:servicehub/authentication/signin.dart';
 import 'dart:async';
+
+import 'package:servicehub/authentication/login.dart';
 
 class WelcomeScreen extends StatefulWidget {
   final String customerName;
@@ -117,7 +118,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           _buildButton("Get Started", () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => SignInSignUpScreen()),
+              MaterialPageRoute(builder: (context) => LoginScreen()),
             );
           }, Colors.brown),
         ],
