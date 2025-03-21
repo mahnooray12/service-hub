@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:servicehub/authentication/phone_auth.dart';
 import 'package:servicehub/homescreen/homescreen.dart';
-import 'package:servicehub/authentication/login.dart';
 
 class Wrapper extends StatefulWidget {
   const Wrapper({super.key});
@@ -22,7 +22,7 @@ class _WrapperState extends State<Wrapper> {
         } else if (snapshot.connectionState == ConnectionState.waiting) {
           return CircularProgressIndicator();
         } else {
-          return LoginScreen();
+          return PhoneLoginScreen();
         }
       },
     ));
